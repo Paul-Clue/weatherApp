@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+
+form{
+  width: 30vw;
+  margin: auto;
+  margin-top: 30vh;
+  background-color: rgba(20, 30, 20, .5);
+}
+
+.locationButton{
+  margin-left: 24vw;
+}
+
+header{
+  width: 100vw;
+  height: 5vw;
+  background-color: rgba(20, 30, 20, .5);
+  font-family: Josefin Sans;
+  color: whitesmoke;
+}
+
+.feedBackDiv{
+  font-size: 2rem;
+  color: whitesmoke;
+  width: 30vw;
+  background-color: rgba(20, 30, 20, .6);
+}
+
+.degree{
+  font-size: 1rem;
+  color: whitesmoke;
+}
