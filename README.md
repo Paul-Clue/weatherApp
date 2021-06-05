@@ -1,11 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# TO-DO LIST
+# Javascript Weather App
 
 ## Project Description
-> This is an app for making a to-do list. Users can create project topics and add to-dos that need to be done. Create to-dos with titles, due dates, and a brief description of the task at hand. Users can  view all to-dos at once or by project.The app also allows the user to pick a priority for the to-dos. The priority level is based on the color of the to-do: red for high priority, yellow second light-blue third, and a light-cyan last. To-dos can also be edited and deleted.
+> This is an app that outputs the weather conditions of any of over 200,000 cities around the world. The app displays the name of the city that the user entered. It also displays the general weather conditions for that city and gives the accurate temperature in fahrenheit or celsius.The user can toggle between fahrenheit or celsius readings.
 
-![screenshot](./assets/img/Screenshot(17).png)
+![screenshot](./src/WeatherApp.png)
 
 ## Live Demo
 
@@ -24,14 +24,14 @@ To get a local copy up and running follow these simple steps.
 
 - Go to the terminal and run the following command:
 ```
-git clone https://github.com/Paul-Clue/todo-list/tree/feature/list
+git clone https://github.com/Paul-Clue/weatherApp/tree/feature/proj
 ```
 - If you don't have git, you can download this project and unzip it.
 - Change the directory to the folder where you want the application saved.
 - Launch the application from index.html.
 
 ## Usage
-- The interface is very intuitive. Create to-dos and specific projects for to-dos by clicking on the appropriate buttons.
+- Once the user has the app loaded up in the browser, the user simply has to enter the name of any city and press the "Get Weather" button. The app will then display the city that the user entered, the general weather conditions of that city, and the city's temperature. The user can also click the "Get Fahrenheit" button or "Get Celsius" button for temperature reading in fahrenheit or celsius.
 
 ## Author
 
