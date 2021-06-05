@@ -9,16 +9,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../src/style.css">
 </head>
-<body>
-  <div class="body">
+<body style="padding: 0;">
+  <div class="body container-fluid" style="width: 100vw; padding: 0;">
     <header class="text-center fs-1 fw-bolder">What's The Weather Today?</header>
         <form action="#" method="post" class="userInput border border-3">
-          <input type="text" name="location" class="form-control fw-bolder" id="location" placeholder="Location">
-          <input type="button" class="btn btn-info locationButton" value="Weather">
+          <input type="text" name="location" class="form-control fw-bolder" id="location" placeholder="Enter The Name Of a City">
+          <input type="button" class="btn btn-info locationButton fw-bolder" value="Get Weather">
+          <input type="button" class="btn btn-warning fahCel fw-bolder" value="Fahrenheit">
         </form>
-        <div class="feedBackDiv m-auto border border-3 pt-2">
-          <p class="place text-center fw-bolder"></p>
-          <p class="feedBack text-center fw-bolder"></p>
+        <div class="feedBackDiv m-auto border border-3 pt-2 text-center fw-bolder">
         </div>
         <img src="" alt="">
   </div>

@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+
+body{
+  width: 100vw;
+  background-image: url("./Material-Loading-Animation.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
 
 form{
   width: 30vw;
@@ -8,14 +16,20 @@ form{
 }
 
 .locationButton{
-  margin-left: 24vw;
+ margin-left: 7vw;
+ width: 8vw;
 }
+
+.fahCel{
+  margin-left: 1vw;
+  width: 8vw;
+ }
 
 header{
   width: 100vw;
   height: 5vw;
-  background-color: rgba(20, 30, 20, .5);
-  font-family: Josefin Sans;
+  background-color: rgba(20, 30, 20, .9);
+  font-family: Suez One;
   color: whitesmoke;
 }
 
@@ -23,7 +37,7 @@ header{
   font-size: 2rem;
   color: whitesmoke;
   width: 30vw;
-  background-color: rgba(20, 30, 20, .6);
+  background-color: rgba(20, 30, 20, .9);
 }
 
 .degree{
