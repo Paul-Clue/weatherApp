@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://paul-clue.github.io/todo-list/)
+[Live Demo Link](https://paul-clue.github.io/weatherApp/)
 
 ## Built With
 > Javascript.
