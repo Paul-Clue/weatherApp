@@ -1,46 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
 
-body{
+body {
   width: 100vw;
   background-image: url("./Material-Loading-Animation.gif");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: center;
 }
 
-form{
+form {
   width: 30vw;
   margin: auto;
   margin-top: 30vh;
-  background-color: rgba(20, 30, 20, .5);
+  background-color: rgba(20, 30, 20, 0.5);
 }
 
-.locationButton{
- margin-left: 7vw;
- width: 8vw;
+.locationButton {
+  margin-left: 7vw;
+  width: 8vw;
 }
 
-.fahCel{
+.fahCel {
   margin-left: 1vw;
   width: 8vw;
- }
+}
 
-header{
+header {
   width: 100vw;
   height: 5vw;
-  background-color: rgba(20, 30, 20, .9);
+  background-color: rgba(20, 30, 20, 0.9);
+  /* stylelint-disable */
   font-family: Suez One;
+  /* stylelint-enable */
   color: whitesmoke;
 }
 
-.feedBackDiv{
+.feedBackDiv {
   font-size: 2rem;
   color: whitesmoke;
   width: 30vw;
-  background-color: rgba(20, 30, 20, .9);
+  background-color: rgba(20, 30, 20, 0.9);
 }
 
-.degree{
+.degree {
   font-size: 1rem;
   color: whitesmoke;
 }
