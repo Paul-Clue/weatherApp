@@ -3,7 +3,7 @@
 # Javascript Weather App
 
 ## Project Description
-> This is an app that outputs the weather conditions of any of over 200,000 cities around the world. The app displays the name of the city that the user entered. It also displays the general weather conditions for that city and gives the accurate temperature in fahrenheit or celsius.The user can toggle between fahrenheit or celsius readings.
+> This is an app that outputs the weather conditions of any of over 200,000 cities around the world. The app displays the name of the city that the user entered. It also displays the general weather conditions for that city and gives the accurate temperature in fahrenheit or celsius.The user can toggle between fahrenheit or celsius readings. A background gif that corresponds to the weather conditions of the city chosen by the user loads and and fills the screen.
 
 ![screenshot](./src/weatherApp.png)
 
