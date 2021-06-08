@@ -25,78 +25,75 @@ if (tempType[0] === undefined) {
   fahCel.value = tempType[0];// eslint-disable-line
 }
 
-const changeTemp = () => {
-  if (fahCel.value === 'Get Fahrenheit') {
-    tempType = JSON.parse(localStorage.getItem('tempType'));
-    tempType[0] = 'Get Fahrenheit';
-    fahCel.value = 'Get Celsius';
-    fahCel2 = 'imperial';
-    localStorage.setItem('tempType', JSON.stringify(tempType));
-  } else {
-    tempType = JSON.parse(localStorage.getItem('tempType'));
-    tempType[0] = 'Get Celsius';
-    fahCel.value = 'Get Fahrenheit';
-    fahCel2 = 'metric';
-    localStorage.setItem('tempType', JSON.stringify(tempType));
-  }
-};
+const weatherInfo = document.querySelector('.feedBackDiv');
+const place = document.createElement('p');
 
-const changeBut = document.querySelector('.fahCel');
-changeBut.addEventListener('click', changeTemp);
+const condition = document.createElement('p');
+
+const degree = document.createElement('span');
+if (fahCel.value === 'Get Fahrenheit') {
+  degree.innerHTML = '&nbsp;  &#176; C';
+} else {
+  degree.innerHTML = '&nbsp;  &#176; F';
+}
+
+degree.setAttribute('color', 'whitesmoke');
+
+degree.setAttribute('font-size', '1rem');
+
+const temp2 = document.createElement('p');
+
+let input2 = '';
 
 const temp = async (input) => {
+  input2 = input;
+
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=6828c8e901ce61eba78b5d02535eeed1&units=${fahCel2}`;
 
   const grab = await fetch(url, {
     method: 'GET',
     mode: 'cors',
+  }).then((response) => {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
   });
 
   const grab2 = grab.json();
-
-  const weatherInfo = document.querySelector('.feedBackDiv');
-  const place = document.createElement('p');
-  const temp = document.createElement('p');
-
-  const condition = document.createElement('p');
-
-  const degree = document.createElement('span');
-  if (fahCel.value === 'Get Fahrenheit') {
-    degree.innerHTML = '&nbsp;  &#176; C';
-  } else {
-    degree.innerHTML = '&nbsp;  &#176; F';
-  }
-
-  degree.setAttribute('color', 'whitesmoke');
-
-  degree.setAttribute('font-size', '1rem');
 
   grab2.then((result) => {
     place.innerText = `${result.name} ${result.sys.country}`;
     condition.innerText = result.weather[0].main;
 
-    temp.innerText = result.main.temp;
-    temp.appendChild(degree);
+    temp2.innerText = result.main.temp;
+    temp2.appendChild(degree);
     if (weatherInfo.firstChild === null) {
       weatherInfo.firstChild = null;
       weatherInfo.appendChild(place);
       weatherInfo.appendChild(condition);
-      weatherInfo.appendChild(temp);
+      weatherInfo.appendChild(temp2);
     } else {
       removeAllChildNodes(weatherInfo);
       weatherInfo.appendChild(place);
       weatherInfo.appendChild(condition);
-      weatherInfo.appendChild(temp);
+      weatherInfo.appendChild(temp2);
     }
 
     let weather = '';
     if (result.weather[0].main === 'Clear') {
       weather = 'sun';
     } else {
-      weather = result.weather.main;
+      weather = result.weather[0].main;
     }
 
     fetch(`https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=${weather}`, { mode: 'cors' })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
       .then((response) => response.json())
       .then((response) => {
         document.body.style.backgroundImage = `url(${response.data.images.original.url})`;
@@ -105,5 +102,95 @@ const temp = async (input) => {
       });
   });
 };
+
+const changeTemp = async () => {
+  if (fahCel.value === 'Get Fahrenheit') {
+    tempType = JSON.parse(localStorage.getItem('tempType'));
+    tempType[0] = 'Get Fahrenheit';
+    fahCel.value = 'Get Celsius';
+    fahCel2 = 'imperial';
+    localStorage.setItem('tempType', JSON.stringify(tempType));
+    degree.innerHTML = '&nbsp;  &#176; C';
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=metric`;
+
+    const grab = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+    }).then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    });
+
+    const grab2 = grab.json();
+
+    grab2.then((result) => {
+      console.log(result);
+      place.innerText = `${result.name} ${result.sys.country}`;
+
+      condition.innerText = result.weather[0].main;
+
+      temp2.innerText = result.main.temp;
+
+      temp2.appendChild(degree);
+
+      if (weatherInfo.firstChild === null) {
+        weatherInfo.firstChild = null;
+        weatherInfo.appendChild(place);
+        weatherInfo.appendChild(condition);
+        weatherInfo.appendChild(temp2);
+      } else {
+        removeAllChildNodes(weatherInfo);
+        weatherInfo.appendChild(place);
+        weatherInfo.appendChild(condition);
+        weatherInfo.appendChild(temp2);
+      }
+    });
+  } else {
+    tempType = JSON.parse(localStorage.getItem('tempType'));
+    tempType[0] = 'Get Celsius';
+    fahCel.value = 'Get Fahrenheit';
+    fahCel2 = 'metric';
+    localStorage.setItem('tempType', JSON.stringify(tempType));
+    degree.innerHTML = '&nbsp;  &#176; F';
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=imperial`;
+
+    const grab = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+    }).then((response) => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    });
+
+    const grab2 = grab.json();
+
+    grab2.then((result) => {
+      place.innerText = `${result.name} ${result.sys.country}`;
+      condition.innerText = result.weather[0].main;
+      temp2.innerText = result.main.temp;
+
+      temp2.appendChild(degree);
+
+      if (weatherInfo.firstChild === null) {
+        weatherInfo.firstChild = null;
+        weatherInfo.appendChild(place);
+        weatherInfo.appendChild(condition);
+        weatherInfo.appendChild(temp2);
+      } else {
+        removeAllChildNodes(weatherInfo);
+        weatherInfo.appendChild(place);
+        weatherInfo.appendChild(condition);
+        weatherInfo.appendChild(temp2);
+      }
+    });
+  }
+};
+
+const changeBut = document.querySelector('.fahCel');
+changeBut.addEventListener('click', changeTemp);
 
 export default temp;
