@@ -106,12 +106,13 @@ const temp = async (input) => {
 const changeTemp = async () => {
   if (fahCel.value === 'Get Fahrenheit') {
     tempType = JSON.parse(localStorage.getItem('tempType'));
-    tempType[0] = 'Get Fahrenheit';
+    tempType[0] = 'Get Celsius';
     fahCel.value = 'Get Celsius';
     fahCel2 = 'imperial';
     localStorage.setItem('tempType', JSON.stringify(tempType));
-    degree.innerHTML = '&nbsp;  &#176; C';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=metric`;
+    degree.innerHTML = '&nbsp;  &#176; F';
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=${fahCel2}`;
 
     const grab = await fetch(url, {
       method: 'GET',
@@ -126,35 +127,20 @@ const changeTemp = async () => {
     const grab2 = grab.json();
 
     grab2.then((result) => {
-      console.log(result);
       place.innerText = `${result.name} ${result.sys.country}`;
-
-      condition.innerText = result.weather[0].main;
-
       temp2.innerText = result.main.temp;
 
       temp2.appendChild(degree);
-
-      if (weatherInfo.firstChild === null) {
-        weatherInfo.firstChild = null;
-        weatherInfo.appendChild(place);
-        weatherInfo.appendChild(condition);
-        weatherInfo.appendChild(temp2);
-      } else {
-        removeAllChildNodes(weatherInfo);
-        weatherInfo.appendChild(place);
-        weatherInfo.appendChild(condition);
-        weatherInfo.appendChild(temp2);
-      }
     });
   } else {
     tempType = JSON.parse(localStorage.getItem('tempType'));
-    tempType[0] = 'Get Celsius';
+    tempType[0] = 'Get Fahrenheit';
     fahCel.value = 'Get Fahrenheit';
     fahCel2 = 'metric';
     localStorage.setItem('tempType', JSON.stringify(tempType));
-    degree.innerHTML = '&nbsp;  &#176; F';
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=imperial`;
+    degree.innerHTML = '&nbsp;  &#176; C';
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${input2}&appid=6828c8e901ce61eba78b5d02535eeed1&units=${fahCel2}`;
 
     const grab = await fetch(url, {
       method: 'GET',
@@ -170,7 +156,6 @@ const changeTemp = async () => {
 
     grab2.then((result) => {
       place.innerText = `${result.name} ${result.sys.country}`;
-      condition.innerText = result.weather[0].main;
       temp2.innerText = result.main.temp;
 
       temp2.appendChild(degree);
