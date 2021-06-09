@@ -1,4 +1,5 @@
 import removeAllChildNodes from './removeAllChildNodes';
+import popUp from './popUp';
 
 let tempType = [];
 if (localStorage.getItem('tempType') === null) {
@@ -55,7 +56,7 @@ const temp = async (input) => {
     mode: 'cors',
   }).then((response) => {
     if (!response.ok) {
-      alert(response.statusText);
+      popUp(response.statusText);
       throw Error(response.statusText);
     }
     return response;
@@ -91,7 +92,7 @@ const temp = async (input) => {
     fetch(`https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=${weather}`, { mode: 'cors' })
       .then((response) => {
         if (!response.ok) {
-          alert(`${response.statusText} Retry`);
+          popUp(response.statusText);
           throw Error(response.statusText);
         }
         return response;
@@ -121,7 +122,7 @@ const changeTemp = async () => {
       mode: 'cors',
     }).then((response) => {
       if (!response.ok) {
-        alert(`${response.statusText} Retry`);
+        popUp(response.statusText);
         throw Error(response.statusText);
       }
       return response;
@@ -150,7 +151,7 @@ const changeTemp = async () => {
       mode: 'cors',
     }).then((response) => {
       if (!response.ok) {
-        alert(response.statusText);
+        popUp(response.statusText);
         throw Error(`${response.statusText} Retry`);
       }
       return response;
