@@ -91,7 +91,7 @@ const temp = async (input) => {
     fetch(`https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=${weather}`, { mode: 'cors' })
       .then((response) => {
         if (!response.ok) {
-          alert(response.statusText);
+          alert(response.statusText + " Retry");
           throw Error(response.statusText);
         }
         return response;
@@ -121,7 +121,7 @@ const changeTemp = async () => {
       mode: 'cors',
     }).then((response) => {
       if (!response.ok) {
-        alert(response.statusText);
+        alert(response.statusText + " Retry");
         throw Error(response.statusText);
       }
       return response;
@@ -151,7 +151,7 @@ const changeTemp = async () => {
     }).then((response) => {
       if (!response.ok) {
         alert(response.statusText);
-        throw Error(response.statusText);
+        throw Error(response.statusText + " Retry");
       }
       return response;
     });

@@ -5,7 +5,7 @@ const enter = document.querySelector('#location');
 fetch('https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=Clouds', { mode: 'cors' })
   .then((response) => {
     if (!response.ok) {
-      alert(response.statusText);
+      alert(response.statusText + " Retry");
       throw Error(response.statusText);
     }
     return response;
