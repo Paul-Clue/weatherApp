@@ -7,7 +7,7 @@ close2.addEventListener('click', close);
 
 const enter = document.querySelector('#location');
 
-fetch('https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=Clouds', { mode: 'cors' })
+fetch('https://api.giphy.com/v1/gifs/translate?api_key=DDO6wmRcjThYc6vRzRg6YFuHyCd0QOcR&s&s=clouds', { mode: 'cors' })
   .then((response) => {
     if (!response.ok) {
       popUp(response.statusText);

@@ -67,13 +67,14 @@ const temp = async (input) => {
   grab2.then((result) => {
     place.innerText = `${result.name} ${result.sys.country}`;
     condition.innerText = result.weather[0].main;
-
     temp2.innerText = result.main.temp;
+
     temp2.appendChild(degree);
     if (weatherInfo.firstChild === null) {
       weatherInfo.firstChild = null;
       weatherInfo.appendChild(place);
       weatherInfo.appendChild(condition);
+
       weatherInfo.appendChild(temp2);
     } else {
       removeAllChildNodes(weatherInfo);
