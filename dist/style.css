@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Suez+One&display=swap');
+
+body {
+  width: 100vw;
+  background-image: url("./Material-Loading-Animation.gif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.confirmDelete{
+  position: absolute;
+  top: 27%;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+  z-index: 10;
+  border: 4px solid black;
+  background-color: rgba(230, 200, 330, .9);
+  display: none;
+}
+
+.deleteButton2{
+  position: relative;
+  left: 45%;
+  top: 40%;
+}
+
+.confirmText{
+  font-weight: bold;
+  position: relative;
+  left: 38%;
+  top: 35%;
+}
+
+.form {
+  width: 30vw;
+  margin: auto;
+  margin-top: 30vh;
+  background-color: rgba(20, 30, 20, 0.5);
+}
+
+.locationButton {
+  margin-left: 7vw;
+  width: 8vw;
+}
+
+.fahCel {
+  margin-left: 1vw;
+  width: 8vw;
+}
+
+header {
+  width: 100vw;
+  height: 5vw;
+  background-color: rgba(20, 30, 20, 0.9);
+  /* stylelint-disable */
+  font-family: Suez One;
+  /* stylelint-enable */
+  color: whitesmoke;
+}
+
+.feedBackDiv {
+  font-size: 2rem;
+  color: whitesmoke;
+  width: 30vw;
+  background-color: rgba(20, 30, 20, 0.9);
+}
+
+.degree {
+  font-size: 1rem;
+  color: whitesmoke;
+}
